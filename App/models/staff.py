@@ -1,8 +1,7 @@
 from App.database import db
 
 class Staff(db.Model):
-    id = db.Column(db.Integer, primary_key=True)
-    staff_id = db.Column(db.String(8), unique=True, nullable=False)
+    staff_id = db.Column(db.String(8), primary_key=True)
     firstname =  db.Column(db.String(20), nullable=False)
     lastname = db.Column(db.String(20), nullable=False)
     written_reviews = db.relationship('Review', backref='author', lazy=True)
@@ -13,7 +12,7 @@ class Staff(db.Model):
         self.lastname = lastname
         
     def __repr__(self):
-        return f'< Staff: {self.id} | {self.get_fullname()} >'
+        return f'< Staff: {self.staff_id} | {self.get_fullname()} >'
     
     def get_fullname(self):
         return f'{self.firstname} {self.lastname}'
@@ -24,7 +23,7 @@ class Staff(db.Model):
     def get_json(self):
         student_reviews = self.get_written_reviews()
         return {
-            'id': self.id,
+            'id': self.staff_id,
             'firstname': self.firstname,
             'lastname': self.lastname,
             'written_reviews': student_reviews
