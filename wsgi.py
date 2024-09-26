@@ -85,7 +85,22 @@ def list_students_command():
         print(f'{student.student_id}   |   {student.firstname} {student.lastname}')
         
 
+@student_cli.command("get", help="Get a student and their reviews")
+@click.argument("student_id", default="00000000")
+def get_student_command(student_id):
+    student: Student | None = search_student_by_id(student_id)
     
+    if not student:
+        print(f'Student ID [ {student_id} ] not found !')
+    else:
+        print(f'ID :                   {student.student_id}')
+        print(f'Name :                 {student.firstname} {student.lastname}')
+        print(f'Average Rating :       {student.get_rating()} star(s) ({len(student.reviews)} reviews)')
+        print(f'Reviews :')
+        print(f'---------------------------------------------------------------------------------------------------')
+        for review in student.reviews:
+            print(f'Rating : {review.rating} star(s)\nComment :\n{review.comment}\n')
+            
     
 app.cli.add_command(student_cli) # add the group to the cli
 
