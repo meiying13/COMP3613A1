@@ -3,9 +3,12 @@ from flask import Flask
 from flask.cli import with_appcontext, AppGroup
 
 from App.database import db, get_migrate
-from App.models import User
+from App.models import User, Student, Staff, Review
 from App.main import create_app
-from App.controllers import ( create_user, get_all_users_json, get_all_users, initialize )
+from App.controllers import ( create_user, get_all_users_json, get_all_users, initialize)
+from App.controllers.review import (create_review, get_all_reviews)
+from App.controllers.student import (create_student, get_all_students, search_student_by_id, search_student_by_name)
+from App.controllers.staff import (create_staff, get_all_staff)
 
 
 # This commands file allow you to create convenient CLI commands for testing controllers
@@ -17,7 +20,11 @@ migrate = get_migrate(app)
 @app.cli.command("init", help="Creates and initializes the database")
 def init():
     initialize()
+    students = get_all_students()
+    staff = get_all_staff()
+    reviews = get_all_reviews()
     print('database intialized')
+
 
 '''
 User Commands
@@ -48,6 +55,20 @@ def list_user_command(format):
         print(get_all_users_json())
 
 app.cli.add_command(user_cli) # add the group to the cli
+
+
+student_cli = AppGroup('student', help='Student object commands') 
+
+# Then define the command and any parameters and annotate it with the group (@)
+@student_cli.command("add", help="Creates a student")
+@click.argument("id", default="00000000")
+@click.argument("firstname", default="Bob")
+@click.argument("lastname", default="Ross")
+def create_student_command(id, firstname, lastname):
+    create_student(id, firstname, lastname)
+    
+    
+app.cli.add_command(student_cli) # add the group to the cli
 
 '''
 Test Commands
