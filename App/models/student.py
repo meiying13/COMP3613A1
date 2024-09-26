@@ -10,11 +10,19 @@ class Student(db.Model):
         self.id = student_id
         self.firstname = firstname
         self.lastname = lastname
+        
+    def __repr__(self):
+        return f'< Student: {self.id} | {self.firstname} | {self.lastname} | reviews [{self.get_reviews()}] >'
+        
+    def get_reviews(self):
+        return ', '.join([review.comment for review in self.reviews])
 
     def get_json(self):
-        return{
+        student_reviews = self.get_reviews()
+        return {
             'id': self.id,
             'firstname': self.firstname,
-            'lastname': self.lastname
+            'lastname': self.lastname,
+            'reviews': student_reviews
         }
 
