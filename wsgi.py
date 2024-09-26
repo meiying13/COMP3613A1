@@ -7,7 +7,7 @@ from App.models import User, Student, Staff, Review
 from App.main import create_app
 from App.controllers import ( create_user, get_all_users_json, get_all_users, initialize)
 from App.controllers.review import (create_review, get_all_reviews)
-from App.controllers.student import (create_student, get_all_students, search_student_by_id, search_student_by_name)
+from App.controllers.student import (create_student, get_all_students, search_student_by_id, search_student_by_name, print_student, print_students)
 from App.controllers.staff import (create_staff, get_all_staff)
 
 
@@ -20,9 +20,6 @@ migrate = get_migrate(app)
 @app.cli.command("init", help="Creates and initializes the database")
 def init():
     initialize()
-    students = get_all_students()
-    staff = get_all_staff()
-    reviews = get_all_reviews()
     print('database intialized')
 
 
@@ -68,10 +65,10 @@ def create_student_command(id, firstname, lastname):
     create_student(id, firstname, lastname)
     
 
-@student_cli.command("add-review", help="Adds a review for a student")
+@student_cli.command("review", help="Adds a review for a student")
 @click.argument("student_id", default="00000000")
 @click.argument("rating", default=5)
-@click.argument("comment", default="Exhibited extraordinary leadership skills and initiative")
+@click.argument("comment", default="Good work ethic")
 def review_student_command(student_id, rating, comment):
     create_review(student_id, "00000613", rating, comment)
     
@@ -79,12 +76,9 @@ def review_student_command(student_id, rating, comment):
 @student_cli.command("list", help="List all students")
 def list_students_command():
     students = get_all_students()
-    print(f'ID         |   STUDENT NAME')
-    print(f'----------------------------------------------')
-    for student in students:
-        print(f'{student.student_id}   |   {student.firstname} {student.lastname}')
+    print_students(students)
+    
         
-
 @student_cli.command("get", help="Get a student and their reviews")
 @click.argument("student_id", default="00000000")
 def get_student_command(student_id):
@@ -93,13 +87,7 @@ def get_student_command(student_id):
     if not student:
         print(f'Student ID [ {student_id} ] not found !')
     else:
-        print(f'ID :                   {student.student_id}')
-        print(f'Name :                 {student.firstname} {student.lastname}')
-        print(f'Average Rating :       {student.get_rating()} star(s) ({len(student.reviews)} reviews)')
-        print(f'Reviews :')
-        print(f'---------------------------------------------------------------------------------------------------')
-        for review in student.reviews:
-            print(f'Rating : {review.rating} star(s)\nComment :\n{review.comment}\n')
+        print_student(student)
             
     
 app.cli.add_command(student_cli) # add the group to the cli
