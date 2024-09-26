@@ -1,0 +1,64 @@
+{
+    "students": [
+      { "student_id": "81600000", "firstname": "John", "lastname": "Doe" },
+      { "student_id": "81600001", "firstname": "Jane", "lastname": "Smith" },
+      { "student_id": "81600002", "firstname": "Emily", "lastname": "Johnson" },
+      { "student_id": "81600003", "firstname": "Michael", "lastname": "Williams" }
+    ],
+    "staff": [
+      { "staff_id": "00000611", "firstname": "Alice", "lastname": "Brown" },
+      { "staff_id": "00000612", "firstname": "Bob", "lastname": "Miller" },
+      { "staff_id": "00000613", "firstname": "Bob", "lastname": "Ross" }
+    ],
+    "reviews": [
+      {
+        "student_id": "81600000",
+        "staff_id": "00000611",
+        "rating": 5,
+        "comment": "Excellent work and consistent effort throughout the semester. Always prepared and engaged."
+      },
+      {
+        "student_id": "81600000",
+        "staff_id": "00000612",
+        "rating": 2,
+        "comment": "Needs significant improvement in communication skills and teamwork."
+      },
+      {
+        "student_id": "81600001",
+        "staff_id": "00000611",
+        "rating": 4,
+        "comment": "Shows dedication and improvement, though there's room for growth in time management."
+      },
+      {
+        "student_id": "81600001",
+        "staff_id": "00000612",
+        "rating": 3,
+        "comment": "Solid performance but can improve focus and attention to detail."
+      },
+      {
+        "student_id": "81600002",
+        "staff_id": "00000611",
+        "rating": 5,
+        "comment": "Demonstrates excellent problem-solving abilities and a proactive attitude."
+      },
+      {
+        "student_id": "81600002",
+        "staff_id": "00000613",
+        "rating": 3,
+        "comment": "Performance is average, and there's potential to perform at a higher level with more effort."
+      },
+      {
+        "student_id": "81600003",
+        "staff_id": "00000611",
+        "rating": 4,
+        "comment": "Displays a solid understanding of the material but could participate more in discussions."
+      },
+      {
+        "student_id": "81600003",
+        "staff_id": "00000612",
+        "rating": 1,
+        "comment": "Struggles with staying on task and completing assignments on time."
+      }
+    ]
+  }
+  
