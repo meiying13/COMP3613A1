@@ -11,3 +11,7 @@ def create_review(student_id, staff_id, is_positive, rating, comment):
     )
     db.session.add(new_review)
     db.session.commit()
+    
+    
+def get_all_reviews():
+    return Review.query.all()
