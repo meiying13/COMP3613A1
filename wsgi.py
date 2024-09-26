@@ -81,10 +81,7 @@ def list_students_command():
 @click.argument("student_id", default="00000000")
 def get_student_command(student_id):
     student: Student | None = search_student_by_id(student_id)
-    
-    if not student:
-        print(f'Student ID [ {student_id} ] not found !')
-    else:
+    if student:
         print_student(student)
             
     
