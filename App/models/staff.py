@@ -13,7 +13,7 @@ class Staff(db.Model):
         self.lastname = lastname
         
     def __repr__(self):
-        return f'< Staff: {self.id} | {self.firstname} | {self.lastname} >'
+        return f'< Staff: {self.id} | {self.get_fullname()} >'
     
     def get_fullname(self):
         return f'{self.firstname} {self.lastname}'

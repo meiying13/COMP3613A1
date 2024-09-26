@@ -13,7 +13,7 @@ class Student(db.Model):
         self.lastname = lastname
         
     def __repr__(self):
-        return f'< Student: {self.id} | {self.firstname} | {self.lastname} | reviews [{self.get_reviews()}] >'
+        return f'< Student: {self.id} | {self.get_fullname()} | reviews [{self.get_reviews()}] >'
     
     def get_fullname(self):
         return f'{self.firstname} {self.lastname}'
