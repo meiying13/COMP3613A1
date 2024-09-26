@@ -13,6 +13,9 @@ class Review(db.Model):
         self.rating = rating
         self.comment = comment
         
+    def __repr__(self):
+        return f'< Review: {self.id} | {self.student.get_fullname} | {"positive" if self.is_positive else "negative"} | {self.rating} | {self.comment}] >'
+        
     def get_json(self):
         return {
             'id': self.id,
