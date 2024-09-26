@@ -67,6 +67,15 @@ student_cli = AppGroup('student', help='Student object commands')
 def create_student_command(id, firstname, lastname):
     create_student(id, firstname, lastname)
     
+
+@student_cli.command("add-review", help="Adds a review for a student")
+@click.argument("student_id", default="00000000")
+@click.argument("rating", default=5)
+@click.argument("comment", default="Exhibited extraordinary leadership skills and initiative")
+def review_student_command(student_id, rating, comment):
+    create_review(student_id, "00000613", rating, comment)
+
+    
     
 app.cli.add_command(student_cli) # add the group to the cli
 
