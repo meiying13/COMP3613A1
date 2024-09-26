@@ -2,6 +2,7 @@ from App.database import db
 
 class Staff(db.Model):
     id = db.Column(db.Integer, primary_key=True)
+    staff_id = db.Column(db.String(8), unique=True, nullable=False)
     firstname =  db.Column(db.String(20), nullable=False)
     lastname = db.Column(db.String(20), nullable=False)
     written_reviews = db.relationship('Review', backref='author', lazy=True)

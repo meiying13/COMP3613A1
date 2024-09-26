@@ -2,6 +2,7 @@ from App.database import db
 
 class Student(db.Model):
     id = db.Column(db.Integer, primary_key=True)
+    student_id = db.Column(db.String(8), unique=True, nullable=False)
     firstname =  db.Column(db.String(20), nullable=False)
     lastname = db.Column(db.String(20), nullable=False)
     reviews = db.relationship('Review', backref='student', lazy=True)
