@@ -18,9 +18,13 @@ class Student(db.Model):
         return f'{self.firstname} {self.lastname}'
         
     def get_reviews(self):
-        return ', '.join([review.comment for review in self.reviews])
+        student_reviews = []
+        for review in self.reviews:
+            author = review.author.get_fullname()
+            student_reviews.append([review.rating, author, review.comment])
+        return student_reviews
     
-    def get_rating(self):
+    def get_overall_rating(self):
         total: float = 0
         num_reviews: int = len(self.reviews)
         if num_reviews == 0:
