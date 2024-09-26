@@ -5,7 +5,7 @@ from tabulate import tabulate
 def create_student(student_id, firstname, lastname):
     student = Student.query.filter_by(student_id=student_id).first()
     if student:
-        print(f'The student ID [ {student_id} ] is already exists !')
+        print(f'The student ID [ {student_id} ] already exists !')
         return
     new_student = Student(
         student_id=student_id, 
@@ -32,12 +32,12 @@ def search_student_by_name(name):
 
 
 def search_student_by_id(student_id):
-    return Student.query.filter_by(student_id=student_id).first()
-
-
-def get_student_reviews(student_id):
     student = Student.query.filter_by(student_id=student_id).first()
-    return student.get_reviews()
+    if not student:
+        print(f'Student with ID [ {student_id} ] not found!')
+        return
+    return student
+
 
 def print_students(students):
     headers = ["ID", "Name"]
