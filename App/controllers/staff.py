@@ -11,5 +11,5 @@ def create_staff(staff_id, firstname, lastname):
     db.session.commit()
     
     
-def get_all_students():
+def get_all_staff():
     return Staff.query.all()
