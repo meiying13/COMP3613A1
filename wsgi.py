@@ -6,10 +6,8 @@ from App.database import db, get_migrate
 from App.models import User, Student, Staff, Review
 from App.main import create_app
 from App.controllers import ( create_user, get_all_users_json, get_all_users, initialize)
-from App.controllers.review import (create_review, get_all_reviews)
-from App.controllers.student import (create_student, get_all_students, search_student_by_id, search_student_by_name, print_student, print_students)
-from App.controllers.staff import (create_staff, get_all_staff)
-
+from App.controllers.review import (create_review)
+from App.controllers.student import (create_student, get_all_students, search_student_by_id, print_student, print_students)
 
 # This commands file allow you to create convenient CLI commands for testing controllers
 
