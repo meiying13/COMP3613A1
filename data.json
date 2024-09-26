@@ -58,6 +58,36 @@
         "staff_id": "00000612",
         "rating": 1,
         "comment": "Struggles with staying on task and completing assignments on time."
+      },
+      {
+        "student_id": "81600001",
+        "staff_id": "00000612",
+        "rating": 4,
+        "comment": "Good work overall, but sometimes struggles with meeting deadlines. However, improved towards the end."
+      },
+      {
+        "student_id": "81600002",
+        "staff_id": "00000613",
+        "rating": 3,
+        "comment": "Average performance. Needs to participate more in discussions and seek clarification when confused."
+      },
+      {
+        "student_id": "81600003",
+        "staff_id": "00000614",
+        "rating": 5,
+        "comment": "Outstanding contributions and always eager to assist others. Demonstrates leadership qualities."
+      },
+      {
+        "student_id": "81600000",
+        "staff_id": "00000612",
+        "rating": 4,
+        "comment": "Shows great promise. Active participation in class but needs to polish written assignments."
+      },
+      {
+        "student_id": "81600002",
+        "staff_id": "00000611",
+        "rating": 5,
+        "comment": "An exceptional student. Always prepared, proactive, and ready to contribute in group projects."
       }
     ]
   }
