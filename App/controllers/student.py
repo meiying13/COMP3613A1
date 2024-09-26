@@ -1,5 +1,6 @@
 from App.models import Student
 from App.database import db
+from tabulate import tabulate
 
 def create_student(student_id, firstname, lastname):
     student = Student.query.filter_by(student_id=student_id).first()
@@ -37,3 +38,24 @@ def search_student_by_id(student_id):
 def get_student_reviews(student_id):
     student = Student.query.filter_by(student_id=student_id).first()
     return student.get_reviews()
+
+def print_students(students):
+    headers = ["ID", "Name"]
+    student_data = []
+    for student in students:
+        student_data.append([student.student_id, student.get_fullname()])
+    print()
+    print(tabulate(tabular_data=student_data, headers=headers, tablefmt="fancy_grid"))
+    print()
+
+
+def print_student(student: Student):
+    headers = ["Rating", "Author", "Review Comment"]
+    reviews = student.get_reviews()
+    print()
+    print(f'STUDENT ID\t-\t{student.student_id}')
+    print(f'NAME\t\t-\t{student.get_fullname()}')
+    print(f'OVERALL RATING\t-\t{student.get_overall_rating():.1f} star(s) ({len(student.reviews)} reviews)')
+    print(f'REVIEWS\t\t-')
+    print(tabulate(tabular_data=reviews, headers=headers, tablefmt="fancy_grid"))
+    print()
