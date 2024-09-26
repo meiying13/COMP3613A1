@@ -29,3 +29,18 @@ def create_review(student_id, staff_id, rating, comment):
     
 def get_all_reviews():
     return Review.query.all()
+
+def get_reviews_by_student(student_id):
+    reviews = Review.query.filter_by(student_id=student_id).first()
+    if not reviews:
+        print(f'No reviews found for student ID [ {student_id} ]')
+        return
+    return reviews
+
+
+def get_reviews_by_staff(staff_id):
+    reviews = Review.query.filter_by(staff_id=staff_id).first()
+    if not reviews:
+        print(f'No reviews found for staff ID [ {staff_id} ]')
+        return
+    return reviews
