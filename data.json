@@ -6,9 +6,9 @@
       { "student_id": "81600003", "firstname": "Michael", "lastname": "Williams" }
     ],
     "staff": [
-      { "staff_id": "00000611", "firstname": "Alice", "lastname": "Brown" },
-      { "staff_id": "00000612", "firstname": "Bob", "lastname": "Miller" },
-      { "staff_id": "00000613", "firstname": "Bob", "lastname": "Ross" }
+      { "staff_id": "00000611", "password": "alicepass", "firstname": "Alice", "lastname": "Brown" },
+      { "staff_id": "00000612", "password": "bobpass", "firstname": "Bob", "lastname": "Miller" },
+      { "staff_id": "00000613", "password": "bobpass", "firstname": "Bob", "lastname": "Ross" }
     ],
     "reviews": [
       {
@@ -73,7 +73,7 @@
       },
       {
         "student_id": "81600003",
-        "staff_id": "00000614",
+        "staff_id": "00000613",
         "rating": 5,
         "comment": "Outstanding contributions and always eager to assist others. Demonstrates leadership qualities."
       },
