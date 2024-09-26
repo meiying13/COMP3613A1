@@ -19,7 +19,7 @@ def initialize():
 
     # Create Staff
     for staff in data["staff"]:
-        create_staff(staff["staff_id"], staff["firstname"], staff["lastname"])
+        create_staff(staff["staff_id"], staff["password"], staff["firstname"], staff["lastname"])
 
     # Create Reviews
     for review in data["reviews"]:
