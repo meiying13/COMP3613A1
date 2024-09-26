@@ -4,7 +4,7 @@ class Student(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     firstname =  db.Column(db.String(20), nullable=False)
     lastname = db.Column(db.String(20), nullable=False)
-    reviews = db.relationship('Review', db.backref('student', lazy=True))
+    reviews = db.relationship('Review', backref='student', lazy=True)
 
     def __init__(self, student_id, firstname, lastname):
         self.id = student_id
