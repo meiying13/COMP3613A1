@@ -74,6 +74,16 @@ def create_student_command(id, firstname, lastname):
 @click.argument("comment", default="Exhibited extraordinary leadership skills and initiative")
 def review_student_command(student_id, rating, comment):
     create_review(student_id, "00000613", rating, comment)
+    
+
+@student_cli.command("list", help="List all students")
+def list_students_command():
+    students = get_all_students()
+    print(f'ID         |   STUDENT NAME')
+    print(f'----------------------------------------------')
+    for student in students:
+        print(f'{student.student_id}   |   {student.firstname} {student.lastname}')
+        
 
     
     
