@@ -8,7 +8,7 @@ class Staff(db.Model):
     written_reviews = db.relationship('Review', backref='author', lazy=True)
 
     def __init__(self, staff_id, firstname, lastname):
-        self.id = staff_id
+        self.staff_id = staff_id
         self.firstname = firstname
         self.lastname = lastname
         

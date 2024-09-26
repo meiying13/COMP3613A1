@@ -8,7 +8,7 @@ class Student(db.Model):
     reviews = db.relationship('Review', backref='student', lazy=True)
 
     def __init__(self, student_id, firstname, lastname):
-        self.id = student_id
+        self.student_id = student_id
         self.firstname = firstname
         self.lastname = lastname
         

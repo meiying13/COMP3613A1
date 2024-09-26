@@ -2,8 +2,8 @@ from App.database import db
 
 class Review(db.Model):
     id = db.Column(db.Integer, primary_key=True)
-    student_id = db.Column(db.Integer, db.ForeignKey('student.id'), nullable=False)
-    staff_id = db.Column(db.Integer, db.ForeignKey('staff.id'), nullable=False)
+    student_id = db.Column(db.Integer, db.ForeignKey('student.student_id'), nullable=False)
+    staff_id = db.Column(db.Integer, db.ForeignKey('staff.staff_id'), nullable=False)
     is_positive = db.Column(db.Boolean, nullable=False)
     rating = db.Column(db.Integer, nullable=False)
     comment = db.Column(db.String(255), nullable=False)
