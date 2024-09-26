@@ -13,6 +13,9 @@ class Student(db.Model):
         
     def __repr__(self):
         return f'< Student: {self.id} | {self.firstname} | {self.lastname} | reviews [{self.get_reviews()}] >'
+    
+    def get_fullname(self):
+        return f'{self.firstname} {self.lastname}'
         
     def get_reviews(self):
         return ', '.join([review.comment for review in self.reviews])
