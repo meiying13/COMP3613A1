@@ -17,12 +17,6 @@ class Student(db.Model):
     def get_fullname(self):
         return f'{self.firstname} {self.lastname}'
         
-    def get_reviews(self):
-        student_reviews = []
-        for review in self.reviews:
-            author = review.author.get_fullname()
-            student_reviews.append([review.rating, author, review.comment])
-        return student_reviews
     
     def get_overall_rating(self):
         total: float = 0
@@ -35,7 +29,7 @@ class Student(db.Model):
         return total / num_reviews
 
     def get_json(self):
-        student_reviews = self.get_reviews()
+        student_reviews = [review.get_json() for review in self.reviews]
         return {
             'id': self.student_id,
             'firstname': self.firstname,
