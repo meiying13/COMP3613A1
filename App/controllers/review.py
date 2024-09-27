@@ -1,5 +1,6 @@
 from App.models import Review, Staff, Student
 from App.database import db
+from tabulate import tabulate
 
 def create_review(student_id, staff_id, rating, comment):
     staff: Staff | None = Staff.query.filter_by(staff_id=staff_id).first()
@@ -24,7 +25,7 @@ def create_review(student_id, staff_id, rating, comment):
     )
     db.session.add(new_review)
     db.session.commit()
-    print(f'\nReview for [ {student_id} | {student.get_fullname()} ] added !\n')
+    print(f'Review for [ {student_id} | {student.get_fullname()} ] added !')
     
     
 def get_all_reviews():
@@ -44,3 +45,13 @@ def get_reviews_by_staff(staff_id):
         print(f'No reviews found for staff ID [ {staff_id} ]')
         return
     return reviews
+
+def print_reviews(reviews):
+    headers = ["Rating", "Student", "Author", "Review Comment"]
+    reviews = []
+    for review in reviews:
+        reviews.append([review.rating, review.student.student_id, review.author.staff_id, review.comment])
+    
+    print()
+    print(tabulate(tabular_data=reviews, headers=headers, tablefmt="fancy_grid"))
+    print()
