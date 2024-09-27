@@ -19,7 +19,7 @@ def create_review(student_id, staff_id, rating, comment):
     
     new_review = Review(
         student_id=student.student_id, 
-        staff_id=staff.staff_id, 
+        staff_id=staff.id,
         rating=rating, 
         comment=comment
     )
@@ -48,10 +48,10 @@ def get_reviews_by_staff(staff_id):
 
 def print_reviews(reviews):
     headers = ["Rating", "Student", "Author", "Review Comment"]
-    reviews = []
+    student_reviews = []
     for review in reviews:
-        reviews.append([review.rating, review.student.student_id, review.author.staff_id, review.comment])
+        student_reviews.append([review.rating, review.student.student_id, review.author.staff_id, review.comment])
     
     print()
-    print(tabulate(tabular_data=reviews, headers=headers, tablefmt="fancy_grid"))
+    print(tabulate(tabular_data=student_reviews, headers=headers, tablefmt="fancy_grid"))
     print()

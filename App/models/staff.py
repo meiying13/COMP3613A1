@@ -3,7 +3,6 @@ from .user import User
 
 class Staff(User):
     __tablename__ = "staff"
-    id = db.Column(db.Integer, db.ForeignKey('user.id'), primary_key=True)
     staff_id = db.Column(db.String(8), unique=True, nullable=False)
     firstname = db.Column(db.String(20), nullable=False)
     lastname = db.Column(db.String(20), nullable=False)
