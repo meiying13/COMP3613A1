@@ -22,17 +22,16 @@ def get_all_students():
     return Student.query.all()
 
 
-def search_student_by_name(name):
-    all_students = get_all_students()
-    students = []
-    for student in all_students:
-        if student.firstname == name or student.lastname == name:
-            students.append(student)
-    return students
+def search_student_by_name(firstname, lastname):
+    student = Student.query.filter_by(firstname=firstname, lastname=lastname).first()
+    if not student:
+        print(f'Student [ {firstname} {lastname} ] not found!')
+        return
+    return student
 
 
 def search_student_by_id(student_id):
-    student = Student.query.filter_by(student_id=student_id).first()
+    student = Student.query.get(student_id)
     if not student:
         print(f'Student with ID [ {student_id} ] not found!')
         return
@@ -49,9 +48,21 @@ def print_students(students):
     print()
 
 
-def print_student(student: Student):
+def print_student(student: Student):    
+    print()
+    print(f'STUDENT ID\t-\t{student.student_id}')
+    print(f'NAME\t\t-\t{student.get_fullname()}')
+    print(f'OVERALL RATING\t-\t{student.get_overall_rating():.1f} star(s) ({len(student.reviews)} reviews)')
+    print()
+    
+    
+def print_student_reviews(student: Student):
     headers = ["Rating", "Author", "Review Comment"]
-    reviews = student.get_reviews()
+    reviews = []
+    for review in student.reviews:
+        author = review.author.get_fullname()
+        reviews.append([review.rating, author, review.comment])
+    
     print()
     print(f'STUDENT ID\t-\t{student.student_id}')
     print(f'NAME\t\t-\t{student.get_fullname()}')
