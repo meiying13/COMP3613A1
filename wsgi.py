@@ -92,8 +92,6 @@ def review_student_command() -> None:
         comment: str = click.prompt(text="Comment")
         if create_review(student_id=student_id, username=username, rating=rating, comment=comment):
             print(f'Review for Student [ {student_id} ] added!')
-    else:
-        print("You do not have authorization to add a student review")
 
 
 # This command displays a student's reviews in the database based on ID

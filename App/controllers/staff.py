@@ -28,12 +28,17 @@ def get_staff_by_id(staff_id: str) -> Staff | None:
         return None
     return staff
 
-def authenticate_staff(staff_id: str, password: str) -> bool:
-    staff: Staff | None = get_staff_by_id(staff_id)
+def get_staff_by_username(username: str) -> Staff | None:
+    staff: Staff | None = Staff.query.filter_by(username=username).first()
+    if not staff:
+        print(f'Staff with username [ {username} ] not found!')
+        return None
+    return staff
+
+def authenticate_staff(username: str, password: str) -> bool:
+    staff: Staff | None = get_staff_by_username(username)
     if staff:
         if staff.check_password(password):
             return True
         print('Invalid password!')
-        return False
-    print(f'Staff with ID [ {staff_id} ] not found!')
     return False

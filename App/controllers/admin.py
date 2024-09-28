@@ -27,6 +27,4 @@ def authenticate_admin(username: str, password: str) -> bool:
         if admin.check_password(password):
             return True
         print(f'Invalid password for admin [ {username} ]')
-        return False
-    print(f'Admin with username [ {username} ] not found!')
     return False
