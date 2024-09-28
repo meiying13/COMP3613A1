@@ -91,14 +91,14 @@ This document outlines the various Flask CLI commands available for managing stu
 ```bash
 $ flask student add
 ```
-- **Description**: This command prompts the user to input the necessary details to create a new student record in the database. The required inputs include username, password, student ID, first name, and last name.
+- **Description**: This command prompts the user to input the necessary details to create a new student record in the database. Users need to authenticate as an administrator and provide a student ID, first name, and last name.
 
 ### 2. Listing All Students
 
 ```bash
 $ flask student list
 ```
-- **Description**: This command retrieves and displays a list of all students currently stored in the database, allowing users to easily view all entries.
+- **Description**: This command retrieves and displays a list of all students currently stored in the database.
 
 ### 3. Searching for a Student by ID
 
@@ -112,7 +112,7 @@ $ flask student search-id
 ```bash
 $ flask student search-name
 ```
-- **Description**: This command allows users to search for students by their first or last name. The user is prompted to enter a name, and the command returns all students whose first or last names match the input.
+- **Description**: This command allows users to search for students by their first and last name. The user is prompted to enter a first name and last name, and the command returns all students whose name match the input.
 
 ### 5. Adding a Review for a Student
 
@@ -126,7 +126,7 @@ $ flask student add-review
 ```bash
 $ flask student view-reviews
 ```
-- **Description**: This command prompts the user to enter a student ID and retrieves all reviews associated with that student. It displays the reviews, including ratings and comments, providing insight into the student's performance.
+- **Description**: This command prompts the user to enter a student ID and retrieves all reviews associated with that student. It displays the reviews, including ratings and comments.
 
 
 # Running the Project
