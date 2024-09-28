@@ -1,5 +1,4 @@
-# Student Conduct Tracker
-
+# **Student Conduct Tracker**
 
 # Dependencies
 * Python3/pip3
