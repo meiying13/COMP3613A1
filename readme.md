@@ -1,4 +1,15 @@
-# **Student Conduct Tracker**
+# Student Conduct Tracker
+
+Staff system for recording positive and negative experiences with students. Main features include:
+
+1. Add Student
+
+2. Review student
+
+3. Search Student
+
+4. View student reviews
+
 
 # Dependencies
 * Python3/pip3
