@@ -1,26 +1,32 @@
 from App.models import Admin
 from App.database import db
 
-def create_admin(username, password):
-    admin = Admin.query.filter_by(username=username).first()
+
+def create_admin(username: str, password: str) -> bool:
+    admin: Admin | None = Admin.query.filter_by(username=username).first()
     if admin:
         print(f'Admin with username [ {username} ] already exists !')
-        return
+        return False
     new_admin = Admin(username=username, password=password)
     db.session.add(new_admin)
     db.session.commit()
-    print(f'Admin | {username} added !')
-     
+    return True
 
-def get_admin_by_username(username):
-    admin = Admin.query.filter_by(username=username).first()
+
+def get_admin_by_username(username: str) -> Admin | None:
+    admin: Admin | None = Admin.query.filter_by(username=username).first()
     if not admin:
         print(f'Admin with username [ {username} ] not found!')
-        return
+        return None
     return admin
 
-def authenticate_admin(username, password):
+
+def authenticate_admin(username: str, password: str) -> bool:
     admin: Admin | None = get_admin_by_username(username)
     if admin:
-        return admin.check_password(password)
+        if admin.check_password(password):
+            return True
+        print(f'Invalid password for admin [ {username} ]')
+        return False
+    print(f'Admin with username [ {username} ] not found!')
     return False

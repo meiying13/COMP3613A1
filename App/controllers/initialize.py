@@ -6,7 +6,7 @@ from .admin import create_admin
 from .review import create_review
 from App.database import db
 
-def initialize():
+def initialize() -> None:
     db.drop_all()
     db.create_all()
     
@@ -19,7 +19,7 @@ def initialize():
     with open('staff.csv') as staff_file:
         reader = csv.DictReader(staff_file)
         for row in reader:
-            create_staff(row["staff_id"], row["password"], row["firstname"], row["lastname"])
+            create_staff(row["staff_id"], row["username"], row["password"], row["firstname"], row["lastname"])
             
     with open('admins.csv') as admins_file:
         reader = csv.DictReader(admins_file)
