@@ -80,11 +80,53 @@ app.cli.add_command(user_cli) # add the group to the cli
 
 ```
 
-Then execute the command invoking with flask cli with command name and the relevant parameters
+# Student Management CLI Commands
+
+This document outlines the various Flask CLI commands available for managing student data within the application.
+
+## Commands Overview
+
+### 1. Adding a Student
 
 ```bash
-$ flask user create bob bobpass
+$ flask student add
 ```
+- **Description**: This command prompts the user to input the necessary details to create a new student record in the database. The required inputs include username, password, student ID, first name, and last name.
+
+### 2. Listing All Students
+
+```bash
+$ flask student list
+```
+- **Description**: This command retrieves and displays a list of all students currently stored in the database, allowing users to easily view all entries.
+
+### 3. Searching for a Student by ID
+
+```bash
+$ flask student search-id
+```
+- **Description**: This command prompts the user for a student ID and retrieves the corresponding student record from the database. If a matching student is found, their details will be displayed.
+
+### 4. Searching for Students by Name
+
+```bash
+$ flask student search-name
+```
+- **Description**: This command allows users to search for students by their first or last name. The user is prompted to enter a name, and the command returns all students whose first or last names match the input.
+
+### 5. Adding a Review for a Student
+
+```bash
+$ flask student add-review
+```
+- **Description**: This command prompts the user to input details for adding a review to a specific student record. Users need to authenticate as a staff member and provide a student ID, rating, and comment.
+
+### 6. Viewing a Student's Reviews
+
+```bash
+$ flask student view-reviews
+```
+- **Description**: This command prompts the user to enter a student ID and retrieves all reviews associated with that student. It displays the reviews, including ratings and comments, providing insight into the student's performance.
 
 
 # Running the Project
