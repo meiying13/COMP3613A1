@@ -40,6 +40,33 @@ $ flask student add
 $ flask student list
 ```
 - **Description**: This command retrieves and displays a list of all students currently stored in the database.
+```python
+╒══════════╤══════════════════╕
+│       ID │ Name             │
+╞══════════╪══════════════════╡
+│ 81600000 │ John Doe         │
+├──────────┼──────────────────┤
+│ 81600001 │ Jane Smith       │
+├──────────┼──────────────────┤
+│ 81600002 │ Emily Johnson    │
+├──────────┼──────────────────┤
+│ 81600003 │ Michael Williams │
+├──────────┼──────────────────┤
+│ 81600004 │ Alice Johnson    │
+├──────────┼──────────────────┤
+│ 81600005 │ John Doe         │
+├──────────┼──────────────────┤
+│ 81600006 │ Emily Doe        │
+├──────────┼──────────────────┤
+│ 81600007 │ Michael Brown    │
+├──────────┼──────────────────┤
+│ 81600008 │ Jane Smith       │
+├──────────┼──────────────────┤
+│ 81600009 │ Emily Johnson    │
+├──────────┼──────────────────┤
+│ 81600010 │ Andrew Garfield  │
+╘══════════╧══════════════════╛
+```
 
 ### 3. Searching for a Student by ID
 
