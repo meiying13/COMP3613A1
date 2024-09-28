@@ -1,4 +1,4 @@
-staff_id,password,firstname,lastname
-00000611,password,Alice,Brown
-00000612,password,Bob,Miller
-00000613,password,Bob,Ross
+staff_id,username,password,firstname,lastname
+00000611,alice,password,Alice,Brown
+00000612,bob,bobpass,Bob,Ross
+00000613,rob,robpass,Rob,Miller
