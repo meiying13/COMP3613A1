@@ -70,19 +70,6 @@ $ flask student view-reviews
 - **Description**: This command prompts the user to enter a student ID and retrieves all reviews associated with that student. It displays the reviews, including ratings and comments.
 
 
-# Running the Project
-
-_For development run the serve command (what you execute):_
-```bash
-$ flask run
-```
-
-_For production using gunicorn (what the production server executes):_
-```bash
-$ gunicorn wsgi:app
-```
-
-
 # Initializing the Database
 When connecting the project to a fresh empty database ensure the appropriate configuration is set then file then run the following command. This must also be executed once when running the app on heroku by opening the heroku console, executing bash and running the command in the dyno.
 
