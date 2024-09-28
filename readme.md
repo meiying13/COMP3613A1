@@ -34,7 +34,7 @@ $ flask student add
 ```
 - **Description**: This command prompts the user to input the necessary details to create a new student record in the database. Users need to authenticate as an administrator and provide a student ID, first name, and last name.
 
-```bash
+```
 Enter username: admin
 Enter password: 
 Enter Student ID: 81600010
@@ -50,7 +50,7 @@ $ flask student list
 ```
 - **Description**: This command retrieves and displays a list of all students currently stored in the database.
 
-```bash
+```
 ╒══════════╤══════════════════╕
 │       ID │ Name             │
 ╞══════════╪══════════════════╡
@@ -85,7 +85,7 @@ $ flask student search-id
 ```
 - **Description**: This command prompts the user for a student ID and retrieves the corresponding student record from the database. If a matching student is found, their details will be displayed.
 
-```bash
+```
 Enter Student ID: 81600000
 
 STUDENT ID      -       81600000
@@ -100,7 +100,7 @@ $ flask student search-name
 ```
 - **Description**: This command allows users to search for students by their first and last name. The user is prompted to enter a first name and last name, and the command returns all students whose name match the input.
 
-```bash
+```
 Enter firstname: emily
 Enter lastname: johnson
 
@@ -120,7 +120,7 @@ $ flask student add-review
 ```
 - **Description**: This command prompts the user to input details for adding a review to a specific student record. Users need to authenticate as a staff member and provide a student ID, rating, and comment.
 
-```bash
+```
 Enter username: bob
 Enter password: 
 
@@ -161,7 +161,7 @@ $ flask student view-reviews
 ```
 - **Description**: This command prompts the user to enter a student ID and retrieves all reviews associated with that student. It displays the reviews, including ratings and comments.
 
-```bash
+```
 Enter Student ID: 81600001
 
 STUDENT ID      -       81600001
