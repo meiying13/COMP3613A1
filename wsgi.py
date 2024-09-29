@@ -36,20 +36,22 @@ student_cli = AppGroup('student', help='Student object commands')
 # flask student add
 @student_cli.command("add", help="Creates a student")
 def create_student_command() -> None:
+    password_hint = click.style("Tip: try username 'admin' and password 'admin'", fg='blue')
+    click.echo(password_hint)
     username: str = click.prompt(text="Enter username")
     password: str = click.prompt(text="Enter password", hide_input=True)
     if authenticate_admin(username, password):
-        student_id: str = click.prompt(text="Enter Student ID")
+        student_id: int = click.prompt(text="Enter Student ID", type=int)
         firstname: str = click.prompt(text="Enter Firstname")
         lastname: str = click.prompt(text="Enter Lastname")
         if create_student(student_id, firstname, lastname):
-            print(f'{student_id} | {firstname} {lastname} added!')
+            print(f'Student [ {student_id} | {firstname} {lastname} ] added!')
     
 
 
 # This command lists all students in the database
 # flask student list
-@student_cli.command("list", help="List all students")
+@student_cli.command("list-all", help="List all students")
 def list_students_command() -> None:
     students: list[Student] = get_all_students()
     if not students:
@@ -62,7 +64,7 @@ def list_students_command() -> None:
 # flask student search-id
 @student_cli.command("search-id", help="Search for a student by ID")
 def get_student_by_id_command() -> None:
-    student_id: str = click.prompt(text="Enter Student ID")
+    student_id: int = click.prompt(text="Enter Student ID", type=int)
     student: Student | None = search_student_by_id(student_id)
     if student:
         print_student(student)
@@ -83,11 +85,13 @@ def get_student_by_name_command() -> None:
 # flask student add-review
 @student_cli.command("add-review", help="Adds a review for a student")
 def review_student_command() -> None:
+    password_hint = click.style("Tip: try username 'bob' and password 'password'", fg='blue')
+    click.echo(password_hint)
     username: str = click.prompt(text="Enter username")
     password: str = click.prompt(text="Enter password", hide_input=True)
     if authenticate_staff(username, password):
         print_students(get_all_students())
-        student_id: str = click.prompt(text="Enter Student ID")
+        student_id: int = click.prompt(text="Enter Student ID", type=int)
         rating: int = click.prompt(text="Rating (1=Very Poor, 5=Excellent)", type=int)
         comment: str = click.prompt(text="Comment")
         if create_review(student_id=student_id, username=username, rating=rating, comment=comment):
@@ -98,7 +102,8 @@ def review_student_command() -> None:
 # flask student view-reviews
 @student_cli.command("view-reviews", help="View a student's reviews")
 def get_student_reviews_command() -> None:
-    student_id: str = click.prompt(text="Enter Student ID")
+    print_students(get_all_students())
+    student_id: int = click.prompt(text="Enter Student ID", type=int)
     student: Student | None = search_student_by_id(student_id)
     if student:
         print_student_reviews(student)
