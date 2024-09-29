@@ -40,13 +40,13 @@ Enter password:
 Enter Student ID: 81600010
 Enter Firstname: Andrew
 Enter Lastname: Garfield 
-81600010 | Andrew Garfield added!
+Student [ 81600010 | Andrew Garfield ] added!
 ```
 
 ### 2. Listing All Students
 
 ```bash
-$ flask student list
+$ flask student list-all
 ```
 - **Description**: This command retrieves and displays a list of all students currently stored in the database.
 
@@ -146,6 +146,8 @@ Enter password:
 │ 81600008 │ Jane Smith       │
 ├──────────┼──────────────────┤
 │ 81600009 │ Emily Johnson    │
+├──────────┼──────────────────┤
+│ 81600010 │ Andrew Garfield  │
 ╘══════════╧══════════════════╛
 
 Enter Student ID: 81600001
@@ -162,6 +164,33 @@ $ flask student view-reviews
 - **Description**: This command prompts the user to enter a student ID and retrieves all reviews associated with that student. It displays the reviews, including ratings and comments.
 
 ```
+
+╒══════════╤══════════════════╕
+│       ID │ Name             │
+╞══════════╪══════════════════╡
+│ 81600000 │ John Doe         │
+├──────────┼──────────────────┤
+│ 81600001 │ Jane Smith       │
+├──────────┼──────────────────┤
+│ 81600002 │ Emily Johnson    │
+├──────────┼──────────────────┤
+│ 81600003 │ Michael Williams │
+├──────────┼──────────────────┤
+│ 81600004 │ Alice Johnson    │
+├──────────┼──────────────────┤
+│ 81600005 │ John Doe         │
+├──────────┼──────────────────┤
+│ 81600006 │ Emily Doe        │
+├──────────┼──────────────────┤
+│ 81600007 │ Michael Brown    │
+├──────────┼──────────────────┤
+│ 81600008 │ Jane Smith       │
+├──────────┼──────────────────┤
+│ 81600009 │ Emily Johnson    │
+├──────────┼──────────────────┤
+│ 81600010 │ Andrew Garfield  │
+╘══════════╧══════════════════╛
+
 Enter Student ID: 81600001
 
 STUDENT ID      -       81600001
