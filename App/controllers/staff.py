@@ -2,7 +2,7 @@ from App.models import Staff
 from App.database import db
 
 
-def create_staff(staff_id: str, username: str, password: str, firstname: str, lastname: str) -> bool:
+def create_staff(staff_id: int, username: str, password: str, firstname: str, lastname: str) -> bool:
     staff: Staff | None = Staff.query.filter_by(staff_id=staff_id).first()
     if staff:
         print(f'The staff ID [ {staff_id} ] already exists!')
@@ -21,7 +21,7 @@ def create_staff(staff_id: str, username: str, password: str, firstname: str, la
 def get_all_staff() -> list[Staff]:
     return Staff.query.all()
 
-def get_staff_by_id(staff_id: str) -> Staff | None:
+def get_staff_by_id(staff_id: int) -> Staff | None:
     staff: Staff | None = Staff.query.filter_by(staff_id=staff_id).first()
     if not staff:
         print(f'Staff with ID [ {staff_id} ] not found!')

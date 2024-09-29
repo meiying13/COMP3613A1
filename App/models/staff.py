@@ -4,7 +4,7 @@ from .review import Review
 
 class Staff(User):
     __tablename__: str = "staff"
-    staff_id: str = db.Column(db.String(8), unique=True)
+    staff_id: int = db.Column(db.Integer, unique=True)
     firstname: str = db.Column(db.String(20))
     lastname: str = db.Column(db.String(20))
     written_reviews = db.relationship('Review', backref='author', lazy=True)
@@ -13,7 +13,7 @@ class Staff(User):
         'polymorphic_identity': 'staff', 
     }
 
-    def __init__(self, staff_id: str, firstname: str, lastname: str, username: str, password: str) -> None:
+    def __init__(self, staff_id: int, firstname: str, lastname: str, username: str, password: str) -> None:
         super().__init__(username=username, password=password)
         self.staff_id = staff_id
         self.firstname = firstname

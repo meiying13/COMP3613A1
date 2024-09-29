@@ -3,12 +3,12 @@ from App.database import db
 from .review import Review
 
 class Student(db.Model):
-    student_id: str = db.Column(db.String(8), primary_key=True)
+    student_id: int = db.Column(db.Integer, primary_key=True)
     firstname: str =  db.Column(db.String(20), nullable=False)
     lastname: str = db.Column(db.String(20), nullable=False)
     reviews = db.relationship('Review', backref='student', lazy=True)
 
-    def __init__(self, student_id: str, firstname: str, lastname: str) -> None:
+    def __init__(self, student_id: int, firstname: str, lastname: str) -> None:
         self.student_id = student_id
         self.firstname = firstname
         self.lastname = lastname

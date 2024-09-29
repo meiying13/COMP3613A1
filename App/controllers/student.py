@@ -4,7 +4,7 @@ from tabulate import tabulate
 from typing import Union
 
 
-def create_student(student_id: str, firstname: str, lastname: str) -> bool:
+def create_student(student_id: int, firstname: str, lastname: str) -> bool:
     student: Student | None = Student.query.filter_by(student_id=student_id).first()
     if student:
         print(f'The student ID [ {student_id} ] already exists!')
@@ -27,11 +27,11 @@ def search_student_by_name(firstname: str, lastname: str) -> list[Student]:
         Student.lastname.ilike(f"%{lastname}%")
     ).all()
     if not students:
-        print(f'[ {firstname} {lastname} ] not found!')
+        print(f'Student [ {firstname} {lastname} ] not found!')
         return None
     return students
 
-def search_student_by_id(student_id: str) -> Student | None:
+def search_student_by_id(student_id: int) -> Student | None:
     student: Student | None = Student.query.get(student_id)
     if not student:
         print(f'Student with ID [ {student_id} ] not found!')

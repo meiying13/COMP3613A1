@@ -4,7 +4,7 @@ from tabulate import tabulate
 from typing import Union
 
 
-def create_review(student_id: str, username: str, rating: int, comment: str) -> bool:
+def create_review(student_id: int, username: str, rating: int, comment: str) -> bool:
     staff: Staff | None = Staff.query.filter_by(username=username).first()
     if staff is None:
         print(f'\nStaff with username [ {username} ] not found!\n')
@@ -33,14 +33,14 @@ def create_review(student_id: str, username: str, rating: int, comment: str) -> 
 def get_all_reviews() -> list[Review]:
     return Review.query.all()
 
-def get_reviews_by_student(student_id: str) -> Review | None:
+def get_reviews_by_student(student_id: int) -> Review | None:
     reviews: Review | None = Review.query.filter_by(student_id=student_id).first()
     if not reviews:
         print(f'No reviews found for student ID [ {student_id} ]')
         return
     return reviews
 
-def get_reviews_by_staff(staff_id: str) -> Review | None:
+def get_reviews_by_staff(staff_id: int) -> Review | None:
     reviews: Review | None = Review.query.filter_by(staff_id=staff_id).first()
     if not reviews:
         print(f'No reviews found for staff ID [ {staff_id} ]')
