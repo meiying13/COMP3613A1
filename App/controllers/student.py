@@ -67,6 +67,5 @@ def print_student_reviews(student: Student) -> None:
     print(f'NAME\t\t-\t{student.get_fullname()}')
     print(f'PROGRAMME\t-\t{student.programme}')
     print(f'OVERALL RATING\t-\t{student.get_overall_rating():.1f} star(s) ({len(student.reviews)} reviews)')
-    print(f'REVIEWS\t\t-')
-    print(tabulate(tabular_data=reviews, headers=headers, tablefmt="fancy_grid"))
+    print(f'REVIEWS\t\t-\t{"No reviews written yet" if len(student.reviews) == 0 else f'\n{tabulate(tabular_data=reviews, headers=headers, tablefmt="fancy_grid")}'}')
     print()
