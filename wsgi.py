@@ -56,7 +56,7 @@ def create_student_command() -> None:
 def list_students_command() -> None:
     students: list[Student] = get_all_students()
     if not students:
-        print('No students found')
+        print('There are currently no students registered.')
     else:
         print_students(students)
 
