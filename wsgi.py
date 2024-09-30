@@ -44,7 +44,8 @@ def create_student_command() -> None:
         student_id: int = click.prompt(text="Enter Student ID", type=int)
         firstname: str = click.prompt(text="Enter Firstname")
         lastname: str = click.prompt(text="Enter Lastname")
-        if create_student(student_id, firstname, lastname):
+        programme: str = click.prompt(text="Enter Programme")
+        if create_student(student_id, firstname, lastname, programme):
             print(f'Student [ {student_id} | {firstname} {lastname} ] added!')
     
 

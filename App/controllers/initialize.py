@@ -14,7 +14,7 @@ def initialize() -> None:
     with open('students.csv') as students_file:
         reader = csv.DictReader(students_file)
         for row in reader:
-            create_student(int(row["student_id"]), row["firstname"], row["lastname"])
+            create_student(int(row["student_id"]), row["firstname"], row["lastname"], row["programme"])
 
     with open('staff.csv') as staff_file:
         reader = csv.DictReader(staff_file)

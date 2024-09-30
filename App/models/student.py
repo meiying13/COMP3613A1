@@ -6,15 +6,17 @@ class Student(db.Model):
     student_id: int = db.Column(db.Integer, primary_key=True)
     firstname: str =  db.Column(db.String(20), nullable=False)
     lastname: str = db.Column(db.String(20), nullable=False)
+    programme: str = db.Column(db.String(120), nullable=False)
     reviews = db.relationship('Review', backref='student', lazy=True)
 
-    def __init__(self, student_id: int, firstname: str, lastname: str) -> None:
+    def __init__(self, student_id: int, firstname: str, lastname: str, programme: str) -> None:
         self.student_id = student_id
         self.firstname = firstname
         self.lastname = lastname
+        self.programme = programme
         
     def __repr__(self) -> str:
-        return f'< Student: {self.student_id} | {self.get_fullname()} | reviews [{self.get_reviews()}] >'
+        return f'< Student: {self.student_id} | {self.get_fullname()} | {self.programme} >'
     
     def get_fullname(self) -> str:
         return f'{self.firstname} {self.lastname}'
@@ -35,6 +37,7 @@ class Student(db.Model):
             'id': self.student_id,
             'firstname': self.firstname,
             'lastname': self.lastname,
+            'programme': self.programme,
             'reviews': student_reviews
         }
 

@@ -18,6 +18,9 @@ class Staff(User):
         self.staff_id = staff_id
         self.firstname = firstname
         self.lastname = lastname
+        
+    def __repr__(self) -> str:
+        return f'< Staff: {self.user.id} | {self.staff_id} | {self.get_fullname()} >'
 
     def get_fullname(self) -> str:
         return f'{self.firstname} {self.lastname}'
@@ -31,6 +34,3 @@ class Staff(User):
             'lastname': self.lastname,
             'written_reviews': student_reviews
         }
-        
-    def __repr__(self) -> str:
-        return f'< Staff: {self.user.id} | {self.staff_id} | {self.get_fullname()} >'
